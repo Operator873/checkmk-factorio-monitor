@@ -5,7 +5,8 @@ import requests
 
 # To determine your path, try a find command like:
 # sudo find / -name "factorio" -type f 2>/dev/null
-PATH="/path/to/bin/x64/factorio --version"
+# Don't remove the "--version" switch
+PATH = "/path/to/bin/x64/factorio --version"
 
 
 def main():

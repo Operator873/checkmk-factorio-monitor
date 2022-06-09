@@ -6,14 +6,14 @@ def discover_factorio_version(section):
 
 
 def check_factorio_version(section):
-    for line in section:
+    for line in section:  # Look for these words at the beginning of each line returned
         if line[0].startswith("OK"):
             yield Result(state=State.OK, summary=" ".join(line))
         elif line[0].startswith("CRITICAL"):
             yield Result(state=State.CRIT, summary=" ".join(line))
         elif line[0].startswith("UNKNOWN"):
             yield Result(state=State.WARN, summary=" ".join(line))
-        else:
+        else:  # Handle anything else returned without dying
             yield Result(
                 state=State.UNKNOWN, summary="Unexpected response: " + " ".join(line)
             )
